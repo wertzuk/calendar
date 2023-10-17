@@ -1,25 +1,28 @@
 <template>
-  <section class="shadow bg-slate-200 rounded text-slate-800 mb-8">
+  <section
+    v-for="event in events"
+    :key="event.id"
+    class="shadow bg-slate-200 rounded text-slate-800 mb-8"
+  >
     <header class="p-4 pb-0">
-      <div
-        class="text-xl font-thin border-black/20 border-b pb-4 tracking-wider"
-      >
-        01/01/2023 - 03/01/2023
+      <div class="flex gap-2">
+        <div
+          class="text-xl font-thin border-black/20 border-b pb-4 tracking-wider"
+        >
+          <span>{{ event.start_date }}</span>
+          <span v-if="event.end_date"> - {{ event.start_date }}</span>
+        </div>
       </div>
     </header>
     <div class="px-4 py-2">
-      <div
-        draggable="true"
-        class="bg-red-500 py-1 px-3 inline-block text-white text-sm rounded-xl mb-4"
-      >
-        Klassisch
+      <div class="flex gap-2">
+        <Tag>{{ event.category }}</Tag>
       </div>
-
-      <h2 class="text-2xl">Deutsche Meisterschaft der Amateure</h2>
+      <h2 class="text-2xl">{{ event.name }}</h2>
       <ul class="mt-4 mb-6 font-thin">
-        <li>München</li>
-        <li>9 Runden</li>
-        <li>2h 40/30 min rest</li>
+        <li>{{ event.city }}</li>
+        <li>{{ event.mode }}</li>
+        <li>{{ event.time }}</li>
       </ul>
       <div class="flex justify-between">
         <button
@@ -33,6 +36,9 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import Tag from './Tag.vue';
+import { events } from '../store';
+</script>
 
 <style></style>
