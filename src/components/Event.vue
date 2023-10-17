@@ -11,6 +11,7 @@
         >
           <span>{{ event.start_date }}</span>
           <span v-if="event.end_date"> - {{ event.start_date }}</span>
+          testtestset
         </div>
       </div>
     </header>

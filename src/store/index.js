@@ -18,5 +18,6 @@ export const events = [
     mode: 'Rundenturnier',
     time: '3min+2sek',
     start_date: '18/01/2023',
+    end_date: '20/01/2023',
   },
 ];
