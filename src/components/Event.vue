@@ -1,9 +1,5 @@
 <template>
-  <section
-    v-for="event in events"
-    :key="event.id"
-    class="shadow bg-slate-200 rounded text-slate-800 mb-8"
-  >
+  <div v-if="event">
     <header class="p-4 pb-0">
       <div class="flex gap-2">
         <div
@@ -14,6 +10,7 @@
         </div>
       </div>
     </header>
+
     <div class="px-4 py-2">
       <div class="flex gap-2">
         <Tag>{{ event.category }}</Tag>
@@ -33,12 +30,14 @@
         </button>
       </div>
     </div>
-  </section>
+  </div>
+  <div v-else>Loading...</div>
 </template>
 
 <script setup>
 import Tag from './Tag.vue';
-import { events } from '../store';
+
+const props = defineProps({ event: Object });
 </script>
 
 <style></style>
