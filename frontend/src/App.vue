@@ -7,6 +7,4 @@
   </main>
 </template>
 
-<script setup>
-import Event from './components/Event.vue';
-</script>
+<script setup></script>

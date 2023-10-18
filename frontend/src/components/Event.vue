@@ -6,7 +6,7 @@
           class="text-xl font-thin border-black/20 border-b pb-4 tracking-wider"
         >
           <span>{{ event.start_date }}</span>
-          <span v-if="event.end_date"> - {{ event.start_date }}</span>
+          <span v-if="event.end_date"> - {{ event.end_date }}</span>
         </div>
       </div>
     </header>
