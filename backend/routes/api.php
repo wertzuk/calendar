@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/tournaments", [TournamentController::class, 'retrieveAll']);
+Route::get("/tournaments/{tournament}", [TournamentController::class, 'find']);

@@ -11,4 +11,8 @@ class TournamentController extends Controller
         $tournaments = Tournament::all();
         return response()->json($tournaments);
     }
+
+    public function find(Tournament $tournament) {
+        return response()->json($tournament);
+    }
 }
