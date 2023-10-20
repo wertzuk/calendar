@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('city');
             $table->string('mode');
+            $table->string('category');
             $table->string('time');
             $table->string('location');
             $table->date('start_date');

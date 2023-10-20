@@ -21,6 +21,7 @@ class TournamentFactory extends Factory
             'city' => fake()->city(),
             'time' => fake()->numberBetween(1,120) . 'min + 0',
             'mode' => 'Swiss',
+            'category' => 'Classical',
             'location'=> fake()->streetAddress(),
             'start_date' => fake()->date(),
             'end_date' => fake()->date(),
