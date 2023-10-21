@@ -7,8 +7,19 @@ use Illuminate\Http\Request;
 
 class TournamentController extends Controller
 {
-    public function retrieveAll() {
-        $tournaments = Tournament::all();
+    public function retrieveAll(Request $request) {
+        $tournaments = [];
+        if ($request->query('sort')) {
+            // TODO: create enum for all possible sort values
+            $sorting = $request->query('sort');
+            if($sorting === 'desc') {
+                $tournaments = Tournament::orderByDesc('start_date')->get();
+            }
+        }
+        else {
+            $tournaments = Tournament::all();
+        }
+
         return response()->json($tournaments);
     }
 
