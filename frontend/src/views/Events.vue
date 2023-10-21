@@ -1,6 +1,6 @@
 <template>
-  <h1 class="text-6xl my-8 font-serif">Januar</h1>
   <div v-if="data">
+    <h1 class="text-5xl my-8 font-serif">Januar</h1>
     <section
       v-for="event in data"
       :key="event.id"
@@ -9,11 +9,14 @@
       <Event :event="event"></Event>
     </section>
   </div>
+
+  <Skeleton v-else />
   <div v-if="error">Etwas ist schiefgelaufen!</div>
 </template>
 
 <script setup>
 import Event from '../components/Event.vue';
+import Skeleton from '../components/Skeleton.vue';
 import { events } from '../store';
 import { useTournaments } from '../hooks/api.js';
 
