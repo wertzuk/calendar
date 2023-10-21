@@ -37,6 +37,17 @@
 import Tag from './Tag.vue';
 
 const props = defineProps({ event: Object });
+
+// function transformDate(date) {
+//   const options = {
+//     weekday: 'long',
+//     year: 'numeric',
+//     month: 'long',
+//     day: 'numeric',
+//   };
+
+//   return date.toLocaleDateString('de-DE', options);
+// }
 </script>
 
 <style></style>
