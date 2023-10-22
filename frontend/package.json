@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "test": "vitest",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vue/test-utils": "^2.4.0-alpha.2",
+    "happy-dom": "^12.9.1",
+    "vitest": "^0.34.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
