@@ -1,6 +1,6 @@
 <template>
-  <div v-if="data">
-    <div v-for="(eventGroup, month) in data" :key="date">
+  <div v-if="groupedEvents">
+    <div v-for="(eventGroup, month) in groupedEvents" :key="date">
       <div class="py-4 mb-4 bg-white opacity-80">
         <h1 class="text-4xl">{{ month }}</h1>
       </div>
@@ -19,28 +19,43 @@
 </template>
 
 <script setup>
-import { watchEffect } from 'vue';
+import { ref, watchEffect } from 'vue';
 import Event from '../components/Event.vue';
 import Skeleton from '../components/Skeleton.vue';
-// import { events } from '../store';
+import { events } from '../store';
 import { useTournaments } from '../hooks/api.js';
 
-const { data, error } = useTournaments();
+const groupedEvents = ref(null);
 
-watchEffect(() => {
-  if (data.value) {
-    const grouped = {};
-    data.value.forEach((event) => {
-      const transformedDate = transformDate(new Date(event.start_date));
-      if (grouped.hasOwnProperty(transformedDate)) {
-        grouped[transformedDate].push(event);
-      } else {
-        grouped[transformedDate] = [event];
-      }
-    });
-    data.value = grouped;
-  }
-});
+if (events.value.length > 0) {
+  groupedEvents.value = groupTournaments(events.value);
+} else {
+  const { data, error } = useTournaments();
+
+  watchEffect(() => {
+    if (data.value) {
+      events.value = data.value;
+      groupedEvents.value = groupTournaments(events.value);
+    }
+  });
+}
+/**
+ * Group tournaments by month
+ *
+ * @param {array} tournaments
+ */
+function groupTournaments(tournaments) {
+  const grouped = {};
+  tournaments.forEach((event) => {
+    const transformedDate = transformDate(new Date(event.start_date));
+    if (grouped.hasOwnProperty(transformedDate)) {
+      grouped[transformedDate].push(event);
+    } else {
+      grouped[transformedDate] = [event];
+    }
+  });
+  return grouped;
+}
 
 function transformDate(date) {
   const options = {
@@ -50,6 +65,4 @@ function transformDate(date) {
 
   return date.toLocaleDateString('de-DE', options);
 }
-
-// console.log(data.value, error);
 </script>
