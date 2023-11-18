@@ -1,22 +1,32 @@
 <template>
-  <div v-if="event">
-    {{ event }}
-  </div>
-  <div v-else>Event not found</div>
+  <div v-if="!event">Loading</div>
+  <div v-else>{{ event }}</div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
 import { events } from '../store';
+import { useFetch } from '@vueuse/core';
 
 const event = ref(null);
 const route = useRoute();
 
-console.log(events.value);
+// Trigger the refetch on manual path parameter change as well
+watch(
+  () => route.params.id,
+  async (newId) => {
+    console.log(import.meta.env.VITE_BASE_URL);
+    const { data } = await useFetch(
+      `${import.meta.env.VITE_BASE_URL}/tournaments/${newId}`,
+    )
+      .get()
+      .json();
 
-// event.value = events.find((event) => event.id === +route.params.id);
-event.value = 23;
+    event.value = data;
+  },
+  { immediate: true },
+);
 </script>
 
 <style></style>
