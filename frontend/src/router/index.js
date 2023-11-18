@@ -5,6 +5,7 @@ import EventDetails from '../views/EventDetails.vue';
 const routes = [
   {
     path: '/',
+    alias: '/events',
     name: 'Events',
     component: Events,
   },
