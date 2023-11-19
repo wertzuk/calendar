@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Web\TournamentController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Tournaments');
+Route::get('/', [TournamentController::class, 'index'])->name('index');
+Route::prefix('tournaments')->group(function() {
+    Route::get('/', [TournamentController::class, 'index'])->name('tournaments.index');
+    Route::get('/create', [TournamentController::class, 'create'])->name('tournaments.create');
+    Route::post('/{tournament}', [TournamentController::class, 'show'])->name('tournaments.show');
+    Route::get('/{tournament}/edit', [TournamentController::class, 'edit'])->name('tournaments.edit');
+    Route::put('/{tournament}', [TournamentController::class, 'update'])->name('tournaments.update');
+    Route::delete('/{tournament}', [TournamentController::class, 'destroy'])->name('tournaments.destroy');
 });
+
+ 
