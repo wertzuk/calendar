@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TournamentController;
+use App\Http\Controllers\Api\V1\TournamentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
