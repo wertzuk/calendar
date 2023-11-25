@@ -40,7 +40,11 @@ class TournamentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $tournament = Tournament::findOrFail($id);
+        return Inertia::render('Tournament/Show', [
+            'tournament' => $tournament
+        ]);
+
     }
 
     /**

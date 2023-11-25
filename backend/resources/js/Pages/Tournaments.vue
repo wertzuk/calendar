@@ -10,7 +10,7 @@
                     :key="tournament.id"
                     class="shadow bg-slate-200 rounded text-slate-800 mb-8"
                 >
-                    <Tournament :tournament="tournament"></Tournament>
+                    <TournamentCard :tournament="tournament"></TournamentCard>
                 </section>
             </div>
         </div>
@@ -20,7 +20,7 @@
 <script setup>
 import { computed } from "vue";
 import Layout from "./Layout.vue";
-import Tournament from "./Components/Tournament.vue";
+import TournamentCard from "./Components/TournamentCard.vue";
 
 const props = defineProps({ tournaments: Object });
 
