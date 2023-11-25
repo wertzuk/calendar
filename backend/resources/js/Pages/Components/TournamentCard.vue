@@ -24,12 +24,12 @@
                 <li>{{ tournament.time }}</li>
             </ul>
             <div class="flex justify-between">
-                <router-link
-                    :to="`/events/${tournament.id}`"
+                <a
+                    :href="`/tournaments/${tournament.id}`"
                     class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2 mr-2 mb-2"
                 >
                     Mehr anzeigen
-                </router-link>
+                </a>
             </div>
         </div>
     </div>
