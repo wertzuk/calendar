@@ -24,7 +24,7 @@ class TournamentController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Tournament/Create');
     }
 
     /**
@@ -44,7 +44,6 @@ class TournamentController extends Controller
         return Inertia::render('Tournament/Show', [
             'tournament' => $tournament
         ]);
-
     }
 
     /**
@@ -52,7 +51,10 @@ class TournamentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tournament = Tournament::findOrFail($id);
+        return Inertia::render('Tournament/Edit', [
+            'tournament' => $tournament
+        ]);
     }
 
     /**
