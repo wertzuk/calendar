@@ -14,7 +14,6 @@ class TournamentController extends Controller
      */
     public function index()
     {
-
         return Inertia::render('Tournaments', [
             'tournaments' => Tournament::all()
         ]);

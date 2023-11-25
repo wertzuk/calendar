@@ -20,12 +20,11 @@
 <script setup>
 import { computed } from "vue";
 import Layout from "./Layout.vue";
-import Tournament from "./Tournament.vue";
+import Tournament from "./Components/Tournament.vue";
 
 const props = defineProps({ tournaments: Object });
 
 const groupedTournaments = computed(() => groupTournaments(props.tournaments));
-console.log(groupedTournaments);
 
 /**
  * Group tournaments by month
