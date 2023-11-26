@@ -2,7 +2,7 @@
     <a href="/tournaments" class="border">Zurück</a>
 
     <div>
-        <div v-for="(item, key) in tournament" :key="item.id">
+        <div v-for="(item, key) in tournament" :key="key">
             <span>{{ key }}</span>
             <span class="ml-8 text-sm">{{ item }}</span>
         </div>

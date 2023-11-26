@@ -1,5 +1,5 @@
 <template>
-    <ButtonPrimary href="/tournaments" class="border">Zurück</ButtonPrimary>
+    <ButtonPrimary href="/tournaments">Zurück</ButtonPrimary>
 
     <form action="/tournaments" method="POST">
         <div>

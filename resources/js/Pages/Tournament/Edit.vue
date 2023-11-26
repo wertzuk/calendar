@@ -20,7 +20,7 @@
                     type="text"
                     name="mode"
                     id="mode"
-                    :value="tournament.mode"
+                    :value="tournament.format"
                 />
             </div>
             <div>
@@ -29,7 +29,7 @@
                     type="text"
                     name="time_control"
                     id="time_control"
-                    :value="tournament.time"
+                    :value="tournament.time_control"
                 />
             </div>
             <div>
@@ -38,7 +38,7 @@
                     type="text"
                     name="category"
                     id="category"
-                    :value="tournament.category"
+                    :value="tournament.chess_type"
                 />
             </div>
             <div>
@@ -59,7 +59,7 @@
                     type="number"
                     name="plz"
                     id="plz"
-                    :value="tournament.location"
+                    :value="tournament.plz"
                 />
             </div>
             <div>
