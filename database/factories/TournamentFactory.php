@@ -19,10 +19,10 @@ class TournamentFactory extends Factory
         return [
             'name' => fake()->name(),
             'city' => fake()->city(),
-            'time' => fake()->numberBetween(1,120) . 'min + 0',
-            'mode' => 'Swiss',
-            'category' => 'Classical',
-            'location'=> fake()->streetAddress(),
+            'time_control' => fake()->numberBetween(1,120) . 'min + 0',
+            'format' => 'Swiss',
+            'chess_type' => 'Classical',
+            'street'=> fake()->streetAddress(),
             'start_date' => fake()->date(),
             'end_date' => fake()->date(),
         ];

@@ -16,10 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('city');
-            $table->string('mode');
-            $table->string('category');
-            $table->string('time');
-            $table->string('location');
+            $table->string('format');
+            $table->string('chess_type');
+            $table->string('time_control');
+            $table->string('street');
             $table->date('start_date');
             $table->date('end_date');
         });
