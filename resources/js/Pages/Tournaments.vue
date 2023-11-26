@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div class="mb-4">
+            <ButtonPrimary href="tournaments/create">
+                Turnier erstellen
+            </ButtonPrimary>
+        </div>
         <div v-for="(group, month) in groupedTournaments" :key="date">
             <div class="py-4 mb-4 bg-white opacity-80">
                 <h1 class="text-4xl">{{ month }}</h1>
@@ -23,6 +28,7 @@ export default { layout: Layout };
 import { computed } from "vue";
 import Layout from "./Layout.vue";
 import TournamentCard from "./Components/TournamentCard.vue";
+import ButtonPrimary from "./Components/ButtonPrimary.vue";
 
 const props = defineProps({ tournaments: Object });
 

@@ -1,7 +1,13 @@
 <template>
-    <ButtonPrimary href="/tournaments">Zurück</ButtonPrimary>
+    <div class="mb-4">
+        <ButtonPrimary href="/tournaments">Zurück</ButtonPrimary>
+    </div>
 
-    <form action="/tournaments" method="POST">
+    <FormPrimary></FormPrimary>
+    <!-- <form action="/tournaments" method="POST" class="my-8">
+        <div>
+            <InputText name="name" :required="false">Turniername</InputText>
+        </div>
         <div>
             <label for="name">Turniername</label>
             <input type="text" name="name" id="name" />
@@ -46,7 +52,7 @@
             <label for="end_date">Datum Ende</label>
             <input type="date" name="end_date" id="end_date" />
         </div>
-    </form>
+    </form> -->
 </template>
 
 <script>
@@ -56,6 +62,7 @@ export default { layout: Layout };
 <script setup>
 import Layout from "../Layout.vue";
 import ButtonPrimary from "../Components/ButtonPrimary.vue";
+import FormPrimary from "../Components/FormPrimary.vue";
 </script>
 
 <style lang="scss" scoped></style>
