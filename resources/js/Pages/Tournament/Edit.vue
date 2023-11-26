@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="my-4">
         <ButtonPrimary href="/tournaments" class="border">Zurück</ButtonPrimary>
     </div>
 

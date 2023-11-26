@@ -24,12 +24,12 @@
                 <li>{{ tournament.time }}</li>
             </ul>
             <div class="flex justify-between">
-                <a
-                    :href="`/tournaments/${tournament.id}`"
-                    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2 mr-2 mb-2"
-                >
+                <ButtonPrimary :href="`/tournaments/${tournament.id}`">
                     Mehr anzeigen
-                </a>
+                </ButtonPrimary>
+                <ButtonPrimary :href="`tournaments/${tournament.id}/edit`"
+                    >Bearbeiten
+                </ButtonPrimary>
             </div>
         </div>
     </div>
@@ -37,6 +37,7 @@
 
 <script setup>
 import Tag from "./Tag.vue";
+import ButtonPrimary from "./ButtonPrimary.vue";
 
 const props = defineProps({ tournament: Object });
 </script>

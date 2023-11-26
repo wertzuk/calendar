@@ -1,5 +1,5 @@
 <template>
-    <a href="/tournaments" class="border">Zurück</a>
+    <ButtonPrimary href="/tournaments" class="border">Zurück</ButtonPrimary>
 
     <form action="/tournaments" method="POST">
         <div>
@@ -55,6 +55,7 @@ export default { layout: Layout };
 
 <script setup>
 import Layout from "../Layout.vue";
+import ButtonPrimary from "../Components/ButtonPrimary.vue";
 </script>
 
 <style lang="scss" scoped></style>
