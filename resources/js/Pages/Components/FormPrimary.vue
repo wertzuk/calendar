@@ -1,45 +1,59 @@
 <template>
     <form>
         <div>
-            <InputText name="name" :value="tournament?.name">
+            <InputField name="name" :value="tournament?.name">
                 Turnier
-            </InputText>
-            <InputText name="format" :value="tournament?.format">
+            </InputField>
+            <InputField name="format" :value="tournament?.format">
                 Turnierform
-            </InputText>
-            <InputText name="time_control" :value="tournament?.time_control">
+            </InputField>
+            <InputField name="time_control" :value="tournament?.time_control">
                 Zeitkontrolle
-            </InputText>
-            <InputText name="chess_type" :value="tournament?.chess_type">
+            </InputField>
+            <InputField name="chess_type" :value="tournament?.chess_type">
                 Kategorie
-            </InputText>
-            <InputText
+            </InputField>
+            <InputField
+                type="date"
+                name="start_date"
+                :value="tournament?.start_date"
+            >
+                Startdatum
+            </InputField>
+            <InputField
+                type="date"
+                name="end_date"
+                :value="tournament?.end_date"
+            >
+                Enddatum
+            </InputField>
+            <InputField
                 name="organizer"
                 :value="tournament?.organizer"
                 :required="false"
             >
                 Ausrichter
-            </InputText>
-            <InputText name="street" :value="tournament?.street">
+            </InputField>
+            <InputField name="street" :value="tournament?.street">
                 Straße
-            </InputText>
-            <InputText name="plz" :value="tournament?.plz" :required="false">
+            </InputField>
+            <InputField name="plz" :value="tournament?.plz" :isRequired="false">
                 PLZ
-            </InputText>
-            <InputText name="city" :value="tournament?.city"> Ort </InputText>
-            <InputText
+            </InputField>
+            <InputField name="city" :value="tournament?.city"> Ort </InputField>
+            <InputField
                 name="chess_results_link"
                 :value="tournament?.chess_results_link"
-                :required="false"
+                :isRequired="false"
             >
                 chess-results Link
-            </InputText>
+            </InputField>
         </div>
     </form>
 </template>
 
 <script setup>
-import InputText from "./InputText.vue";
+import InputField from "./InputField.vue";
 
 defineProps({ tournament: Object });
 </script>
