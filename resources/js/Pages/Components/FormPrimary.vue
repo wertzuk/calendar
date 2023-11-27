@@ -1,7 +1,7 @@
 <template>
     <form>
         <div>
-            <InputField name="name" :value="tournament?.name">
+            <InputField name="name" :value="tournament?.name" minlength="5">
                 Turnier
             </InputField>
             <InputField name="format" :value="tournament?.format">
@@ -49,6 +49,7 @@
                 chess-results Link
             </InputField>
         </div>
+        <button>Submit</button>
     </form>
 </template>
 

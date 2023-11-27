@@ -10,6 +10,11 @@
             :name="name"
             :value="value"
             :required="isRequired"
+            :minlength="minlength"
+            :maxlength="maxlength"
+            :min="min"
+            :max="max"
+            :size="size"
             onfocus="if(type === 'date') this.showPicker()"
         />
     </div>
@@ -27,5 +32,10 @@ defineProps({
         type: Boolean,
         default: true,
     },
+    minlength: String,
+    maxlength: String,
+    min: String,
+    max: String,
+    size: String,
 });
 </script>
