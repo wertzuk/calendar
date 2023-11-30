@@ -12,12 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tournaments', function (Blueprint $table) {
+            $table->string('format')->nullable();
+            $table->string('street')->nullable();
             $table->string('organizer')->nullable();
             $table->integer('plz')->nullable();
             $table->integer('number_of_rounds')->nullable();
             $table->tinyInteger('elo_rated')->nullable();
             $table->tinyInteger('dwz_rated')->nullable();
             $table->string('chess_results_link')->nullable();
+            $table->string('website_link')->nullable();
             $table->text('description')->nullable();
         });
     }
