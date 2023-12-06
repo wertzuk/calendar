@@ -8,14 +8,14 @@
             :type="type"
             :id="name"
             :name="name"
-            :value="value"
-            :required="isRequired"
+            :modelValue="value"
             :minlength="minlength"
             :maxlength="maxlength"
             :min="min"
             :max="max"
             :size="size"
             onfocus="if(type === 'date') this.showPicker()"
+            @input="$emit('update:modelValue', $event.target.value)"
         />
     </div>
 </template>
@@ -38,4 +38,6 @@ defineProps({
     max: String,
     size: String,
 });
+
+defineEmits(["update:modelValue"]);
 </script>
