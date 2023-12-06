@@ -1,5 +1,10 @@
 <template>
-    <form method="post" @submit.prevent="submit">
+    <form method="post" @submit="submit" action="/tournaments">
+        <input
+            type="hidden"
+            name="_token"
+            :value="this.$page.props.csrf_token"
+        />
         <div>
             <InputField
                 name="name"
@@ -109,13 +114,16 @@
 </template>
 
 <script setup>
+import axios from "axios";
 import InputField from "./InputField.vue";
 import { reactive, ref } from "vue";
 
 const form = ref({});
 
-function submit() {
+async function submit() {
     console.log(form);
+    const response = await axios.post("/tournaments");
+    // form.submit();
 }
 
 defineProps({ tournament: Object });
