@@ -6,8 +6,8 @@
             </ButtonPrimary>
         </div>
         <div v-for="(group, month) in groupedTournaments" :key="date">
-            <div class="py-4 mb-4 opacity-80 dark:text-white">
-                <h1 class="text-4xl">{{ month }}</h1>
+            <div class="py-4 opacity-80">
+                <h1 class="text-2xl font-bold dark:text-white">{{ month }}</h1>
             </div>
             <section
                 v-for="tournament in group"
