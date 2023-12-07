@@ -5,12 +5,10 @@
         <header class="p-4 pb-0">
             <div class="flex gap-2">
                 <div
-                    class="text-xl font-thin border-black/20 dark:border-gray-100/20 dark:text-white border-b pb-4 tracking-wider"
+                    class="text-lg font-thin border-black/20 dark:border-gray-100/20 dark:text-white border-b pb-4 tracking-wider"
                 >
-                    <span>{{ tournament.start_date }}</span>
-                    <span v-if="tournament.end_date">
-                        - {{ tournament.end_date }}</span
-                    >
+                    <span>{{ startDate }}</span>
+                    <span v-if="endDate"> - {{ endDate }}</span>
                 </div>
             </div>
         </header>
@@ -41,7 +39,39 @@
 import Tag from "./Tag.vue";
 import ButtonPrimary from "./ButtonPrimary.vue";
 
+import { computed } from "vue";
 const props = defineProps({ tournament: Object });
+
+const startDate = computed(() => {
+    const date = new Date(props.tournament.start_date);
+
+    return convertDateFormatToDDMM(date);
+});
+
+const endDate = computed(() => {
+    const date = new Date(props.tournament.end_date);
+
+    return convertDateFormatToDDMM(date);
+});
+
+function convertDateFormatToDDMM(date) {
+    if (!date || isNaN(date)) {
+        return null;
+    }
+
+    return `${addLeadingZero(date.getDate())}.${addLeadingZero(
+        date.getMonth() + 1
+    )}`;
+}
+
+/**
+ * Add leading zero to a number if it has exactly one digit (used to properly display dates)
+ *
+ * @param {number} n
+ */
+function addLeadingZero(n) {
+    return n < 10 ? "0" + n : n;
+}
 </script>
 
 <style></style>
