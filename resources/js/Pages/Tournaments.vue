@@ -6,13 +6,13 @@
             </ButtonPrimary>
         </div>
         <div v-for="(group, month) in groupedTournaments" :key="date">
-            <div class="py-4 mb-4 bg-white opacity-80">
+            <div class="py-4 mb-4 opacity-80 dark:text-white">
                 <h1 class="text-4xl">{{ month }}</h1>
             </div>
             <section
                 v-for="tournament in group"
                 :key="tournament.id"
-                class="shadow bg-slate-200 rounded text-slate-800 mb-8"
+                class="mb-8"
             >
                 <TournamentCard :tournament="tournament"></TournamentCard>
             </section>

@@ -32,7 +32,12 @@ class TournamentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // print_r($request->all());
+        Tournament::create($request->all());
+        return Inertia::render('Tournaments', [
+            'tournaments' => Tournament::all()
+        ]);
+
     }
 
     /**

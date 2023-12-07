@@ -1,9 +1,11 @@
 <template>
-    <div>
+    <div
+        class="bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+    >
         <header class="p-4 pb-0">
             <div class="flex gap-2">
                 <div
-                    class="text-xl font-thin border-black/20 border-b pb-4 tracking-wider"
+                    class="text-xl font-thin border-black/20 dark:border-gray-100/20 dark:text-white border-b pb-4 tracking-wider"
                 >
                     <span>{{ tournament.start_date }}</span>
                     <span v-if="tournament.end_date">
@@ -13,7 +15,7 @@
             </div>
         </header>
 
-        <div class="px-4 py-2">
+        <div class="px-4 py-2 dark:text-gray-100">
             <div class="flex gap-2">
                 <Tag>{{ tournament.chess_type }}</Tag>
             </div>
