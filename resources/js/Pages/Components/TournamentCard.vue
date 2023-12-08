@@ -2,22 +2,24 @@
     <div
         class="bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
     >
-        <header class="p-4 pb-0">
-            <div class="flex gap-2">
+        <header
+            class="p-4 pb-0 border-black/20 dark:border-gray-100/20 border-b"
+        >
+            <div class="flex justify-between gap-2">
                 <div
-                    class="text-lg font-thin border-black/20 dark:border-gray-100/20 dark:text-white border-b pb-4 tracking-wider"
+                    class="text-lg font-thin dark:text-white pb-4 tracking-wider"
                 >
                     <span>{{ startDate }}</span>
                     <span v-if="endDate"> - {{ endDate }}</span>
+                </div>
+                <div class="flex gap-2">
+                    <Tag>{{ tournament.chess_type }}</Tag>
                 </div>
             </div>
         </header>
 
         <div class="px-4 py-2 dark:text-gray-100">
-            <div class="flex gap-2">
-                <Tag>{{ tournament.chess_type }}</Tag>
-            </div>
-            <h2 class="text-2xl">{{ tournament.name }}</h2>
+            <h2 class="text-2xl break-words">{{ tournament.name }}</h2>
             <ul class="mt-4 mb-6 font-thin">
                 <li>{{ tournament.city }}</li>
                 <li>{{ tournament.format }}</li>

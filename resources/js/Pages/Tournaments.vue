@@ -5,18 +5,23 @@
                 Turnier erstellen
             </ButtonPrimary>
         </div>
-        <div v-for="(group, month) in groupedTournaments" :key="date">
-            <div class="py-4 opacity-80">
-                <h1 class="text-2xl font-bold dark:text-white">{{ month }}</h1>
+        <div v-if="tournaments.length > 0">
+            <div v-for="(group, month) in groupedTournaments" :key="date">
+                <div class="py-4 opacity-80">
+                    <h1 class="text-2xl font-bold dark:text-white">
+                        {{ month }}
+                    </h1>
+                </div>
+                <section
+                    v-for="tournament in group"
+                    :key="tournament.id"
+                    class="mb-8"
+                >
+                    <TournamentCard :tournament="tournament"></TournamentCard>
+                </section>
             </div>
-            <section
-                v-for="tournament in group"
-                :key="tournament.id"
-                class="mb-8"
-            >
-                <TournamentCard :tournament="tournament"></TournamentCard>
-            </section>
         </div>
+        <div v-else>Keine Turniere gefunden!</div>
     </div>
 </template>
 
