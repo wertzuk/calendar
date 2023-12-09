@@ -15,7 +15,7 @@ class TournamentController extends Controller
     public function index()
     {
         return Inertia::render('Tournaments', [
-            'tournaments' => Tournament::all()
+            'tournaments' => Tournament::orderByDesc('start_date')->get()
         ]);
     }
 
@@ -35,7 +35,7 @@ class TournamentController extends Controller
         // print_r($request->all());
         Tournament::create($request->all());
         return Inertia::render('Tournaments', [
-            'tournaments' => Tournament::all()
+            'tournaments' => Tournament::orderByDesc('start_date')->get()
         ]);
 
     }
