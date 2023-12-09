@@ -1,5 +1,5 @@
 <template>
-    <form method="post" @submit="submit" action="/tournaments">
+    <form method="post" @submit.prevent="submit" action="/tournaments">
         <input
             type="hidden"
             name="_token"
@@ -15,36 +15,15 @@
                 Turnier
             </InputField>
             <InputField
-                name="format"
-                :modelValue="tournament?.format"
-                v-model="form.format"
-            >
-                Turnierform
-            </InputField>
-            <InputField
                 name="time_control"
                 :modelValue="tournament?.time_control"
                 v-model="form.time_control"
             >
                 Zeitkontrolle
             </InputField>
-            <InputField
-                name="number_of_rounds"
-                type="number"
-                min="1"
-                :modelValue="tournament?.number_of_rounds"
-                v-model="form.number_of_rounds"
+            <InputSelect name="chess_type" v-model="form.chess_type"
+                >Kategorie</InputSelect
             >
-                Anzahl Runden
-            </InputField>
-
-            <InputField
-                name="chess_type"
-                :modelValue="tournament?.chess_type"
-                v-model="form.chess_type"
-            >
-                Kategorie
-            </InputField>
             <InputField
                 type="date"
                 name="start_date"
@@ -62,9 +41,34 @@
                 Enddatum
             </InputField>
             <InputField
+                name="city"
+                :modelValue="tournament?.city"
+                v-model="form.city"
+            >
+                Ort
+            </InputField>
+            <InputField
+                name="number_of_rounds"
+                type="number"
+                min="1"
+                :isRequired="false"
+                :modelValue="tournament?.number_of_rounds"
+                v-model="form.number_of_rounds"
+            >
+                Anzahl Runden
+            </InputField>
+            <InputField
+                name="format"
+                :modelValue="tournament?.format"
+                v-model="form.format"
+                :isRequired="false"
+            >
+                Turniersystem
+            </InputField>
+            <InputField
                 name="organizer"
                 :modelValue="tournament?.organizer"
-                :required="false"
+                :isRequired="false"
                 v-model="form.organizer"
             >
                 Ausrichter
@@ -84,13 +88,6 @@
                 v-model="form.plz"
             >
                 PLZ
-            </InputField>
-            <InputField
-                name="city"
-                :modelValue="tournament?.city"
-                v-model="form.city"
-            >
-                Ort
             </InputField>
             <InputField
                 name="website_link"
@@ -116,13 +113,16 @@
 <script setup>
 import axios from "axios";
 import InputField from "./InputField.vue";
+import InputSelect from "./InputSelect.vue";
 import { reactive, ref } from "vue";
 
 const form = ref({});
 
+const startDate = ref();
+
 async function submit() {
     console.log(form);
-    const response = await axios.post("/tournaments");
+    // const response = await axios.post("/tournaments");
     // form.submit();
 }
 

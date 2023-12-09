@@ -3,6 +3,7 @@
         <label
             :for="name"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            :class="{ required: isRequired }"
         >
             <slot />
         </label>
@@ -45,3 +46,10 @@ defineProps({
 
 defineEmits(["update:modelValue"]);
 </script>
+
+<style>
+.required:after {
+    content: " *";
+    color: red;
+}
+</style>

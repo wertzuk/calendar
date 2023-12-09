@@ -22,12 +22,12 @@
             <h2 class="text-2xl break-words">{{ tournament.name }}</h2>
             <ul class="mt-4 mb-6 font-thin">
                 <li>{{ tournament.city }}</li>
-                <li>{{ tournament.format }}</li>
                 <li>{{ tournament.time_control }}</li>
+                <!-- <li>{{ tournament.format }}</li> -->
             </ul>
             <div class="flex justify-between">
                 <ButtonPrimary :href="`/tournaments/${tournament.id}`">
-                    Mehr anzeigen
+                    Mehr Infos
                 </ButtonPrimary>
                 <ButtonPrimary :href="`tournaments/${tournament.id}/edit`"
                     >Bearbeiten
@@ -46,13 +46,11 @@ const props = defineProps({ tournament: Object });
 
 const startDate = computed(() => {
     const date = new Date(props.tournament.start_date);
-
     return convertDateFormatToDDMM(date);
 });
 
 const endDate = computed(() => {
     const date = new Date(props.tournament.end_date);
-
     return convertDateFormatToDDMM(date);
 });
 
