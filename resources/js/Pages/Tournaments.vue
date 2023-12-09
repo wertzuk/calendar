@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="mb-4">
-            <ButtonPrimary href="tournaments/create">
+            <ButtonLink href="tournaments/create">
                 Turnier erstellen
-            </ButtonPrimary>
+            </ButtonLink>
         </div>
         <div v-if="tournaments.length > 0">
             <div v-for="(group, month) in groupedTournaments" :key="date">
@@ -33,7 +33,7 @@ export default { layout: Layout };
 import { computed } from "vue";
 import Layout from "./Layout.vue";
 import TournamentCard from "./Components/TournamentCard.vue";
-import ButtonPrimary from "./Components/ButtonPrimary.vue";
+import ButtonLink from "./Components/ButtonLink.vue";
 
 const props = defineProps({ tournaments: Object });
 

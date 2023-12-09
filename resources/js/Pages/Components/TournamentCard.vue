@@ -26,12 +26,12 @@
                 <!-- <li>{{ tournament.format }}</li> -->
             </ul>
             <div class="flex justify-between">
-                <ButtonPrimary :href="`/tournaments/${tournament.id}`">
+                <ButtonLink :href="`/tournaments/${tournament.id}`">
                     Mehr Infos
-                </ButtonPrimary>
-                <ButtonPrimary :href="`tournaments/${tournament.id}/edit`"
+                </ButtonLink>
+                <ButtonLink :href="`tournaments/${tournament.id}/edit`"
                     >Bearbeiten
-                </ButtonPrimary>
+                </ButtonLink>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
 
 <script setup>
 import Tag from "./Tag.vue";
-import ButtonPrimary from "./ButtonPrimary.vue";
+import ButtonLink from "./ButtonLink.vue";
 
 import { computed } from "vue";
 const props = defineProps({ tournament: Object });

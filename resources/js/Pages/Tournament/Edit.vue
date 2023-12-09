@@ -1,6 +1,6 @@
 <template>
     <div class="my-4">
-        <ButtonPrimary href="/tournaments" class="border">Zurück</ButtonPrimary>
+        <ButtonLink href="/tournaments" class="border">Zurück</ButtonLink>
     </div>
 
     <FormPrimary :tournament="tournament"></FormPrimary>
@@ -12,7 +12,7 @@ export default { layout: Layout };
 
 <script setup>
 import Layout from "../Layout.vue";
-import ButtonPrimary from "../Components/ButtonPrimary.vue";
+import ButtonLink from "../Components/ButtonLink.vue";
 import FormPrimary from "../Components/FormPrimary.vue";
 
 const props = defineProps({ tournament: Object });
