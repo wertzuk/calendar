@@ -77,6 +77,22 @@
                 Turniersystem
             </InputField>
             <InputField
+                name="starting_fee"
+                :modelValue="tournament?.starting_fee"
+                v-model="form.starting_fee"
+                :isRequired="false"
+            >
+                Startgeld
+            </InputField>
+            <InputField
+                name="prize_fund"
+                :modelValue="tournament?.prize_fund"
+                v-model="form.prize_fund"
+                :isRequired="false"
+            >
+                Preisfonds
+            </InputField>
+            <InputField
                 name="organizer"
                 :modelValue="tournament?.organizer"
                 :isRequired="false"
