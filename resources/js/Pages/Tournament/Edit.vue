@@ -3,7 +3,7 @@
         <ButtonLink href="/tournaments" class="border">Zurück</ButtonLink>
     </div>
 
-    <FormPrimary :tournament="tournament"></FormPrimary>
+    <FormPrimary :tournament="tournament" method="put"></FormPrimary>
 </template>
 
 <script>

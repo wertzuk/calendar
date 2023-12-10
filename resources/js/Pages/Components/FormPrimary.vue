@@ -1,9 +1,15 @@
 <template>
-    <form method="post" @submit.prevent="submit" action="/tournaments">
+    <form method="post" @submit.prevent="submit" :action="submitURL">
         <input
             type="hidden"
             name="_token"
             :value="this.$page.props.csrf_token"
+        />
+        <input
+            v-if="method === 'put'"
+            type="hidden"
+            name="_method"
+            value="put"
         />
         <div>
             <InputField
@@ -25,6 +31,7 @@
                 name="chess_type"
                 v-model="form.chess_type"
                 :options="['Klassisch', 'Schnellschach', 'Blitz']"
+                :value="tournament?.chess_type"
             >
                 Kategorie
             </InputSelect>
@@ -115,20 +122,34 @@
 </template>
 
 <script setup>
+import axios from "axios";
 import InputField from "./InputField.vue";
 import InputSelect from "./InputSelect.vue";
 import ButtonPrimary from "./ButtonPrimary.vue";
 import { reactive, ref } from "vue";
 
+const props = defineProps({
+    tournament: Object,
+    method: {
+        validator(value) {
+            // The value must match one of these strings
+            return ["post", "put"].includes(value);
+        },
+    },
+});
+
+let submitURL = "/tournaments";
+if (props.method === "put") {
+    submitURL = `/tournaments/${props.tournament.id}`;
+}
+
 const form = ref({});
 
 const startDate = ref();
 
-async function submit() {
-    console.log(form);
-    // const response = await axios.post("/tournaments");
-    // form.submit();
-}
+async function submit(e) {
+    // TODO: some additional validation
 
-defineProps({ tournament: Object });
+    e.target.submit();
+}
 </script>

@@ -11,6 +11,7 @@
             :name="name"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
             @input="$emit('update:modelValue', $event.target.value)"
+            :required="isRequired"
         >
             <option disabled value="" selected="selected">
                 Bitte auswählen
@@ -32,9 +33,11 @@ const props = defineProps({
     name: String,
     value: String,
     options: Array,
+    isRequired: {
+        type: Boolean,
+        default: true,
+    },
 });
-
-console.log(props.options);
 
 defineEmits(["update:modelValue"]);
 </script>

@@ -12,7 +12,8 @@
             :type="type"
             :id="name"
             :name="name"
-            :modelValue="value"
+            :modelValue="modelValue"
+            :value="modelValue"
             :minlength="minlength"
             :maxlength="maxlength"
             :min="min"
@@ -26,13 +27,13 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
     type: {
         type: String,
         default: "text",
     },
     name: String,
-    value: String,
+    modelValue: String,
     isRequired: {
         type: Boolean,
         default: true,

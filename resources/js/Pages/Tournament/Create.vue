@@ -3,7 +3,7 @@
         <ButtonLink href="/tournaments">Zurück</ButtonLink>
     </div>
 
-    <FormPrimary></FormPrimary>
+    <FormPrimary method="post"></FormPrimary>
 </template>
 
 <script>
