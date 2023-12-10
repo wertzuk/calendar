@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTournamentRequest;
 use App\Models\Tournament;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -30,20 +31,19 @@ class TournamentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTournamentRequest $request)
     {
         // print_r($request->all());
         Tournament::create($request->all());
-        return Inertia::render('Tournaments', [
-            'tournaments' => Tournament::orderByDesc('start_date')->get()
-        ]);
+        return redirect(route('tournaments.index'));
+
 
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         $tournament = Tournament::findOrFail($id);
         return Inertia::render('Tournament/Show', [
@@ -54,7 +54,7 @@ class TournamentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
         $tournament = Tournament::findOrFail($id);
         return Inertia::render('Tournament/Edit', [
@@ -65,15 +65,17 @@ class TournamentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
-        //
+        $tournament = Tournament::findOrFail($id);
+        $tournament->update($request->all());
+        return redirect(route('tournaments.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         //
     }
