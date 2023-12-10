@@ -10,7 +10,9 @@
                     class="text-lg font-thin dark:text-white pb-4 tracking-wider"
                 >
                     <span>{{ startDate }}</span>
-                    <span v-if="endDate"> - {{ endDate }}</span>
+                    <span v-if="endDate && endDate !== startDate">
+                        - {{ endDate }}</span
+                    >
                 </div>
                 <div class="flex gap-2">
                     <Tag>{{ tournament.chess_type }}</Tag>
