@@ -21,9 +21,13 @@
             >
                 Zeitkontrolle
             </InputField>
-            <InputSelect name="chess_type" v-model="form.chess_type"
-                >Kategorie</InputSelect
+            <InputSelect
+                name="chess_type"
+                v-model="form.chess_type"
+                :options="['Klassisch', 'Schnellschach', 'Blitz']"
             >
+                Kategorie
+            </InputSelect>
             <InputField
                 type="date"
                 name="start_date"
@@ -111,7 +115,6 @@
 </template>
 
 <script setup>
-import axios from "axios";
 import InputField from "./InputField.vue";
 import InputSelect from "./InputSelect.vue";
 import ButtonPrimary from "./ButtonPrimary.vue";

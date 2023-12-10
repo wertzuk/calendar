@@ -15,17 +15,26 @@
             <option disabled value="" selected="selected">
                 Bitte auswählen
             </option>
-            <option value="0">Klassisch</option>
-            <option value="1">Schnellschach</option>
-            <option value="2">Blitz</option>
+            <option
+                v-for="option in options"
+                :key="option"
+                :selected="option === value"
+                :value="option"
+            >
+                {{ option }}
+            </option>
         </select>
     </div>
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
     name: String,
+    value: String,
+    options: Array,
 });
+
+console.log(props.options);
 
 defineEmits(["update:modelValue"]);
 </script>
