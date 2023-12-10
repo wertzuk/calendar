@@ -106,7 +106,7 @@
                 chess-results Link
             </InputField>
         </div>
-        <button>Submit</button>
+        <ButtonPrimary>Submit</ButtonPrimary>
     </form>
 </template>
 
@@ -114,6 +114,7 @@
 import axios from "axios";
 import InputField from "./InputField.vue";
 import InputSelect from "./InputSelect.vue";
+import ButtonPrimary from "./ButtonPrimary.vue";
 import { reactive, ref } from "vue";
 
 const form = ref({});
