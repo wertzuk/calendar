@@ -23,9 +23,21 @@
         <div class="px-4 py-2 dark:text-gray-100">
             <h2 class="text-2xl break-words">{{ tournament.name }}</h2>
             <ul class="mt-4 mb-6 font-thin">
-                <li>{{ tournament.city }}</li>
-                <li>{{ tournament.time_control }}</li>
-                <!-- <li>{{ tournament.format }}</li> -->
+                <li class="mb-2">
+                    <div class="flex items-center gap-2">
+                        <IconLocation />
+                        <span>
+                            {{ tournament.city }}
+                        </span>
+                    </div>
+                </li>
+                <!-- <li>{{ tournament.time_control }}</li> -->
+                <li v-if="tournament.number_of_rounds">
+                    <div class="flex items-center gap-2">
+                        <IconNumber />
+                        <span> {{ tournament.number_of_rounds }} Runden </span>
+                    </div>
+                </li>
             </ul>
             <div class="flex justify-between">
                 <ButtonLink :href="`/tournaments/${tournament.id}`">
@@ -44,6 +56,8 @@ import Tag from "./Tag.vue";
 import ButtonLink from "./ButtonLink.vue";
 
 import { computed } from "vue";
+import IconLocation from "./IconLocation.vue";
+import IconNumber from "./IconNumber.vue";
 const props = defineProps({ tournament: Object });
 
 const startDate = computed(() => {
