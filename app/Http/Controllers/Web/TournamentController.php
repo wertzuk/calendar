@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTournamentRequest;
 use App\Models\Tournament;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Inertia\Inertia;
 
 class TournamentController extends Controller
@@ -16,7 +17,7 @@ class TournamentController extends Controller
     public function index()
     {
         return Inertia::render('Tournaments', [
-            'tournaments' => Tournament::orderByDesc('start_date')->get()
+            'tournaments' => Tournament::where('start_date', '>', Carbon::now())->orderBy('start_date')->get()
         ]);
     }
 
