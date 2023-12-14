@@ -22,7 +22,7 @@
 
         <div class="px-4 py-2 dark:text-gray-100">
             <h2 class="text-2xl break-words">{{ tournament.name }}</h2>
-            <ul class="mt-4 mb-6 font-thin">
+            <ul class="my-6 font-thin">
                 <li class="mb-2">
                     <div class="flex items-center gap-2">
                         <IconLocation />
@@ -43,9 +43,9 @@
                 <ButtonLink :href="`/tournaments/${tournament.id}`">
                     Mehr Infos
                 </ButtonLink>
-                <ButtonLink :href="`tournaments/${tournament.id}/edit`"
+                <!-- <ButtonLink :href="`tournaments/${tournament.id}/edit`"
                     >Bearbeiten
-                </ButtonLink>
+                </ButtonLink> -->
             </div>
         </div>
     </div>

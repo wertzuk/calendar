@@ -47,8 +47,11 @@ class TournamentsTest extends TestCase
 
         $responseRoot->assertInertia(fn (Assert $page) => $page
             ->component('Tournaments')
-    );
+        );
 
+        $responseAlias->assertInertia(fn (Assert $page) => $page
+            ->component('Tournaments')
+        );
     }
     
 }

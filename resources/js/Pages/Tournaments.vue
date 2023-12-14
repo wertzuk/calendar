@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="mb-4">
-            <ButtonLink href="tournaments/create">
+            <!-- <ButtonLink href="tournaments/create">
                 Turnier erstellen
-            </ButtonLink>
+            </ButtonLink> -->
         </div>
         <div v-if="tournaments.length > 0">
             <div v-for="(group, month) in groupedTournaments" :key="date">
