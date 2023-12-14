@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ["./resources/js/**/*.{vue,js}"],
+    content: ["./resources/js/**/*.{vue,js}", "./resources/**/*.blade.php"],
     theme: {
         extend: {},
     },
