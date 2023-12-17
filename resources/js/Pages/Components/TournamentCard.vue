@@ -31,7 +31,6 @@
                         </span>
                     </div>
                 </li>
-                <!-- <li>{{ tournament.time_control }}</li> -->
                 <li v-if="tournament.number_of_rounds">
                     <div class="flex items-center gap-2">
                         <IconNumber />
@@ -43,9 +42,9 @@
                 <ButtonLink :href="`/tournaments/${tournament.id}`">
                     Mehr Infos
                 </ButtonLink>
-                <!-- <ButtonLink :href="`tournaments/${tournament.id}/edit`"
+                <ButtonLink :href="`tournaments/${tournament.id}/edit`"
                     >Bearbeiten
-                </ButtonLink> -->
+                </ButtonLink>
             </div>
         </div>
     </div>
@@ -56,8 +55,8 @@ import Tag from "./Tag.vue";
 import ButtonLink from "./ButtonLink.vue";
 
 import { computed } from "vue";
-import IconLocation from "./IconLocation.vue";
-import IconNumber from "./IconNumber.vue";
+import IconLocation from "./Icons/IconLocation.vue";
+import IconNumber from "./Icons/IconNumber.vue";
 const props = defineProps({ tournament: Object });
 
 const startDate = computed(() => {
