@@ -132,6 +132,22 @@
             >
                 chess-results Link
             </InputField>
+            <InputCheckbox name="elo_rated" :checked="tournament?.elo_rated"
+                >ELO Auswertung</InputCheckbox
+            >
+            <InputCheckbox name="dwz_rated" :checked="tournament?.dwz_rated"
+                >DWZ Auswertung</InputCheckbox
+            >
+            <InputCheckbox
+                name="blitz_elo_rated"
+                :checked="tournament?.blitz_elo_rated"
+                >BLitz-ELO Auswertung</InputCheckbox
+            >
+            <InputCheckbox
+                name="rapid_rated"
+                :checked="tournament?.rapid_lo_rated"
+                >Schnellschach-ELO Auswertung</InputCheckbox
+            >
         </div>
         <ButtonPrimary>Submit</ButtonPrimary>
     </form>
@@ -141,6 +157,7 @@
 import axios from "axios";
 import InputField from "./InputField.vue";
 import InputSelect from "./InputSelect.vue";
+import InputCheckbox from "./InputCheckbox.vue";
 import ButtonPrimary from "./ButtonPrimary.vue";
 import { reactive, ref } from "vue";
 
