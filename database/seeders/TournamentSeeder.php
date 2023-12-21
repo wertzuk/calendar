@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tournament;
 use Illuminate\Database\Seeder;
+// use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class TournamentSeeder extends Seeder
 {
@@ -12,8 +15,11 @@ class TournamentSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('tournaments')->insert([[
+        Tournament::insert([
+        [
             'name' => 'GRENKE-Open',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'city' => 'Karlsruhe',
             'chess_type' => 'Klassisch',
             'time_control' => '1h 30min',
@@ -24,8 +30,6 @@ class TournamentSeeder extends Seeder
             'organizer' => 'GRENKE',
             'plz' => null,
             'number_of_rounds' => 9,
-            'elo_rated' => null,
-            'dwz_rated' => null,
             'chess_results_link' => null,
             'website_link' => null,
             'description' => null,
@@ -33,6 +37,8 @@ class TournamentSeeder extends Seeder
             'starting_fee' => null,
         ], [
             'name' => '72. Offene Osnabrücker Stadtmeisterschaft 2023',
+             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'city' => 'Osnabrück',
             'chess_type' => 'Klassisch',
             'time_control' => '2h / 40 Züge - 30 min Rest',
@@ -43,8 +49,6 @@ class TournamentSeeder extends Seeder
             'organizer' => 'SG Osnabrück',
             'plz' => null,
             'number_of_rounds' => 9,
-            'elo_rated' => null,
-            'dwz_rated' => null,
             'chess_results_link' => null,
             'website_link' => null,
             'description' => null,
@@ -52,6 +56,8 @@ class TournamentSeeder extends Seeder
             'starting_fee' => null,
         ], [
             'name' => 'Schachkreuzfahrt Portugal - Brasilien',
+             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'city' => 'Schiff Norwegian Star',
             'chess_type' => 'Klassisch',
             'time_control' => '2h / 40 Züge - 30 min Rest',
@@ -62,8 +68,6 @@ class TournamentSeeder extends Seeder
             'organizer' => null,
             'plz' => null,
             'number_of_rounds' => 9,
-            'elo_rated' => null,
-            'dwz_rated' => null,
             'chess_results_link' => null,
             'website_link' => null,
             'description' => null,
@@ -71,6 +75,8 @@ class TournamentSeeder extends Seeder
             'starting_fee' => null,
         ], [
             'name' => '17. Paderborner Schachtürken-Cup',
+             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'city' => 'Paderborn',
             'chess_type' => 'Klassisch',
             'time_control' => '90 Minuten für 40 Züge, 15 Minuten für den Rest der Partie',
@@ -81,8 +87,6 @@ class TournamentSeeder extends Seeder
             'organizer' => null,
             'plz' => 33102,
             'number_of_rounds' => 7,
-            'elo_rated' => null,
-            'dwz_rated' => null,
             'chess_results_link' => null,
             'website_link' => 'www.schachtuerken-cup.de',
             'description' => null,
@@ -90,6 +94,8 @@ class TournamentSeeder extends Seeder
             'starting_fee' => null,
         ], [
             'name' => '8. Internationales Bad Schwartauer Schachopen',
+             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'city' => 'Bad Schwartau',
             'chess_type' => 'Klassisch',
             'time_control' => '1h 30min',
@@ -100,8 +106,6 @@ class TournamentSeeder extends Seeder
             'organizer' => null,
             'plz' => 23611,
             'number_of_rounds' => 7,
-            'elo_rated' => null,
-            'dwz_rated' => null,
             'chess_results_link' => null,
             'website_link' => null,
             'description' => null,
@@ -109,6 +113,8 @@ class TournamentSeeder extends Seeder
             'starting_fee' => null,
         ], [
             'name' => 'Krefelder Neujahrsopen 2024',
+             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'city' => 'Krefeld',
             'chess_type' => 'Blitz',
             'time_control' => '3+2',
@@ -119,8 +125,6 @@ class TournamentSeeder extends Seeder
             'organizer' => null,
             'plz' => null,
             'number_of_rounds' => 21,
-            'elo_rated' => null,
-            'dwz_rated' => null,
             'chess_results_link' => null,
             'website_link' => null,
             'description' => null,
