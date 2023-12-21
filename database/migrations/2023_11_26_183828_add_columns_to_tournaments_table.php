@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('organizer')->nullable();
             $table->integer('plz')->nullable();
             $table->integer('number_of_rounds')->nullable();
-            $table->tinyInteger('elo_rated')->nullable();
-            $table->tinyInteger('blitz_elo_rated')->nullable();
-            $table->tinyInteger('rapid_elo_rated')->nullable();
-            $table->tinyInteger('dwz_rated')->nullable();
+            $table->tinyInteger('elo_rated')->default(0);
+            $table->tinyInteger('blitz_elo_rated')->default(0);
+            $table->tinyInteger('rapid_elo_rated')->default(0);
+            $table->tinyInteger('dwz_rated')->default(0);
             $table->string('chess_results_link')->nullable();
             $table->string('website_link')->nullable();
             $table->text('description')->nullable();
