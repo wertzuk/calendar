@@ -132,20 +132,21 @@
             >
                 chess-results Link
             </InputField>
-            <InputCheckbox name="elo_rated" :checked="tournament?.elo_rated"
+            <InputCheckbox name="elo_rated" :modelValue="tournament?.elo_rated"
                 >ELO Auswertung</InputCheckbox
             >
-            <InputCheckbox name="dwz_rated" :checked="tournament?.dwz_rated"
+            <InputCheckbox name="dwz_rated" :modelValue="tournament?.dwz_rated"
                 >DWZ Auswertung</InputCheckbox
             >
+            {{ form.dwz_rated }}
             <InputCheckbox
                 name="blitz_elo_rated"
-                :checked="tournament?.blitz_elo_rated"
+                :modelValue="tournament?.blitz_elo_rated"
                 >BLitz-ELO Auswertung</InputCheckbox
             >
             <InputCheckbox
                 name="rapid_rated"
-                :checked="tournament?.rapid_lo_rated"
+                :modelValue="tournament?.rapid_elo_rated"
                 >Schnellschach-ELO Auswertung</InputCheckbox
             >
         </div>
@@ -181,6 +182,7 @@ const form = ref({});
 const startDate = ref();
 
 async function submit(e) {
+    // console.log(e.target);
     // TODO: some additional validation
 
     e.target.submit();
