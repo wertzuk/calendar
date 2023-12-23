@@ -1,10 +1,6 @@
 <template>
-    <form method="post" @submit.prevent="submit" :action="submitURL">
-        <input
-            type="hidden"
-            name="_token"
-            :value="this.$page.props.csrf_token"
-        />
+    <form method="post" @submit="submit" :action="submitURL">
+        <input type="hidden" name="_token" :value="page.props.csrf_token" />
         <input
             v-if="method === 'put'"
             type="hidden"
@@ -155,15 +151,17 @@
 </template>
 
 <script setup>
-import axios from "axios";
 import InputField from "./InputField.vue";
 import InputSelect from "./InputSelect.vue";
 import InputCheckbox from "./InputCheckbox.vue";
 import ButtonPrimary from "./ButtonPrimary.vue";
-import { reactive, ref } from "vue";
+import { ref } from "vue";
+import { usePage } from "@inertiajs/vue3";
 
 const props = defineProps({
-    tournament: Object,
+    tournament: {
+        required: true,
+    },
     method: {
         validator(value) {
             // The value must match one of these strings
@@ -172,6 +170,8 @@ const props = defineProps({
     },
 });
 
+const page = usePage();
+
 let submitURL = "/tournaments";
 if (props.method === "put") {
     submitURL = `/tournaments/${props.tournament.id}`;
@@ -179,12 +179,5 @@ if (props.method === "put") {
 
 const form = ref({});
 
-const startDate = ref();
-
-async function submit(e) {
-    // console.log(e.target);
-    // TODO: some additional validation
-
-    e.target.submit();
-}
+// TODO: Maybe submit via XHR
 </script>
