@@ -55,34 +55,69 @@
                 tournament.starting_fee
             }}</DescriptionDetails>
         </div>
+        <div class="flex flex-col py-3" v-if="tournament.organizer">
+            <DescriptionTitle>Ausrichter</DescriptionTitle>
+            <DescriptionDetails>{{ tournament.organizer }}</DescriptionDetails>
+        </div>
+        <div class="flex flex-col py-3" v-if="tournament.prize_fund">
+            <DescriptionTitle>Preisfonds</DescriptionTitle>
+            <DescriptionDetails>{{ tournament.prize_fund }}</DescriptionDetails>
+        </div>
+        <div class="flex flex-col py-3" v-if="tournament.chess_results_link">
+            <DescriptionTitle>chess-results Link</DescriptionTitle>
+            <DescriptionDetails>
+                <a target="_blank" :href="tournament.chess_results_link">{{
+                    tournament.chess_results_link
+                }}</a>
+            </DescriptionDetails>
+        </div>
+        <div class="flex flex-col py-3" v-if="tournament.website_link">
+            <DescriptionTitle>Link zur Turnierseite </DescriptionTitle>
+            <DescriptionDetails>
+                <a target="_blank" :href="tournament.website_link">{{
+                    tournament.website_link
+                }}</a>
+            </DescriptionDetails>
+        </div>
+
+        <div
+            class="flex flex-col py-3"
+            v-if="tournament.street && tournament.plz"
+        >
+            <DescriptionTitle>Adresse</DescriptionTitle>
+            <DescriptionDetails
+                >{{ tournament.street }}, {{ tournament.plz }}
+                {{ tournament.city }}</DescriptionDetails
+            >
+        </div>
     </dl>
 </template>
 
 <script>
-export default { layout: Layout };
+export default { layout: Layout }
 </script>
 
 <script setup>
-import ButtonLink from "../Components/ButtonLink.vue";
-import DescriptionTitle from "../Components/DescriptionTitle.vue";
-import DescriptionDetails from "../Components/DescriptionDetails.vue";
-import Layout from "../Layout.vue";
+import ButtonLink from '../Components/ButtonLink.vue'
+import DescriptionTitle from '../Components/DescriptionTitle.vue'
+import DescriptionDetails from '../Components/DescriptionDetails.vue'
+import Layout from '../Layout.vue'
 
-const props = defineProps({ tournament: Object });
+const props = defineProps({ tournament: Object })
 
 // TODO: Make globally available
 function convertDateFormatToDDMMYYYY(oldDate) {
-    const date = new Date(oldDate);
+    const date = new Date(oldDate)
     if (!date || isNaN(date)) {
-        return null;
+        return null
     }
 
     return `${addLeadingZero(date.getDate())}.${addLeadingZero(
         date.getMonth() + 1
-    )}.${date.getFullYear()}`;
+    )}.${date.getFullYear()}`
 }
 function addLeadingZero(n) {
-    return n < 10 ? "0" + n : n;
+    return n < 10 ? '0' + n : n
 }
 </script>
 
