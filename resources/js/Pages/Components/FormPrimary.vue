@@ -113,6 +113,7 @@
                 PLZ
             </InputField>
             <InputField
+                type="url"
                 name="website_link"
                 :modelValue="tournament?.website_link"
                 :isRequired="false"
@@ -121,6 +122,7 @@
                 Link zu Turnierwebseite
             </InputField>
             <InputField
+                type="url"
                 name="chess_results_link"
                 :modelValue="tournament?.chess_results_link"
                 :isRequired="false"
