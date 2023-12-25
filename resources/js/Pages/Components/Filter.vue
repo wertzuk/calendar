@@ -1,6 +1,6 @@
 <template>
     <button
-        class="py-3 px-4 text-sm font-semibold rounded-lg mt-4 flex items-center leading-none"
+        class="py-3 px-4 text-sm font-semibold rounded-lg flex items-center leading-none"
         :class="{
             'dark:bg-gray-400 dark:text-gray-900': active,
             'dark:bg-gray-950 dark:text-white': !active,

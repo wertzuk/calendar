@@ -1,11 +1,6 @@
 <template>
     <div>
-        <div class="mb-4">
-            <ButtonLink href="tournaments/create">
-                Turnier erstellen
-            </ButtonLink>
-        </div>
-        <div class="flex gap-2 mt-4">
+        <div class="flex gap-2 my-2">
             <Filter @click="setFilter(0)" :active="noFilterActive">Alle</Filter>
             <Filter @click="setFilter(1)" :active="classicalFilterActive"
                 >Klassisch</Filter

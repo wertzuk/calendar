@@ -1,12 +1,14 @@
 <template>
-    <header
-        class="p-6 shadow-lg bg-gray-100 dark:bg-gray-800 dark:text-gray-300"
-    >
-        <p class="text-3xl text-center font-bolder">Turnierkalender</p>
-    </header>
+    <Header></Header>
+
+    <!-- Spacer div -->
+    <div class="h-[80px]"></div>
+
     <main class="p-4 text-gray-900 dark:text-gray-300">
         <slot />
     </main>
 </template>
 
-<script setup></script>
+<script setup>
+import Header from './Components/Header.vue';
+</script>
