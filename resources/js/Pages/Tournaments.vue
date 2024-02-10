@@ -19,13 +19,19 @@
                         {{ month }}
                     </h1>
                 </div>
-                <section
-                    v-for="tournament in group"
-                    :key="tournament.id"
-                    class="mb-8"
+                <div
+                    class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 >
-                    <TournamentCard :tournament="tournament"></TournamentCard>
-                </section>
+                    <section
+                        v-for="tournament in group"
+                        :key="tournament.id"
+                        class="mb-8"
+                    >
+                        <TournamentCard
+                            :tournament="tournament"
+                        ></TournamentCard>
+                    </section>
+                </div>
             </div>
         </div>
         <div class="mt-4" v-else>Keine Turniere gefunden!</div>
