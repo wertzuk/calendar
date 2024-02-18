@@ -1,5 +1,10 @@
 <template>
-    <form method="post" @submit="submit" :action="submitURL">
+    <form
+        method="post"
+        @submit="submit"
+        :action="submitURL"
+        class="max-w-xl mx-auto"
+    >
         <input type="hidden" name="_token" :value="page.props.csrf_token" />
         <input
             v-if="method === 'put'"
@@ -31,22 +36,25 @@
             >
                 Kategorie
             </InputSelect>
-            <InputField
-                type="date"
-                name="start_date"
-                :modelValue="tournament?.start_date"
-                v-model="form.start_date"
-            >
-                Startdatum
-            </InputField>
-            <InputField
-                type="date"
-                name="end_date"
-                :modelValue="tournament?.end_date"
-                v-model="form.end_date"
-            >
-                Enddatum
-            </InputField>
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <InputField
+                    type="date"
+                    name="start_date"
+                    :modelValue="tournament?.start_date"
+                    v-model="form.start_date"
+                >
+                    Startdatum
+                </InputField>
+
+                <InputField
+                    type="date"
+                    name="end_date"
+                    :modelValue="tournament?.end_date"
+                    v-model="form.end_date"
+                >
+                    Enddatum
+                </InputField>
+            </div>
             <InputField
                 name="city"
                 :modelValue="tournament?.city"
@@ -54,40 +62,62 @@
             >
                 Ort
             </InputField>
-            <InputField
-                name="number_of_rounds"
-                type="number"
-                min="1"
-                :isRequired="false"
-                :modelValue="tournament?.number_of_rounds"
-                v-model="form.number_of_rounds"
-            >
-                Anzahl Runden
-            </InputField>
-            <InputField
-                name="format"
-                :modelValue="tournament?.format"
-                v-model="form.format"
-                :isRequired="false"
-            >
-                Turniersystem
-            </InputField>
-            <InputField
-                name="starting_fee"
-                :modelValue="tournament?.starting_fee"
-                v-model="form.starting_fee"
-                :isRequired="false"
-            >
-                Startgeld
-            </InputField>
-            <InputField
-                name="prize_fund"
-                :modelValue="tournament?.prize_fund"
-                v-model="form.prize_fund"
-                :isRequired="false"
-            >
-                Preisfonds
-            </InputField>
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <InputField
+                    name="street"
+                    :modelValue="tournament?.street"
+                    :isRequired="false"
+                    v-model="form.street"
+                >
+                    Straße
+                </InputField>
+                <InputField
+                    name="plz"
+                    :modelValue="tournament?.plz"
+                    :isRequired="false"
+                    v-model="form.plz"
+                >
+                    PLZ
+                </InputField>
+            </div>
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <InputField
+                    name="number_of_rounds"
+                    type="number"
+                    min="1"
+                    :isRequired="false"
+                    :modelValue="tournament?.number_of_rounds"
+                    v-model="form.number_of_rounds"
+                >
+                    Anzahl Runden
+                </InputField>
+                <InputField
+                    name="format"
+                    :modelValue="tournament?.format"
+                    v-model="form.format"
+                    :isRequired="false"
+                >
+                    Turniersystem
+                </InputField>
+            </div>
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <InputField
+                    name="starting_fee"
+                    :modelValue="tournament?.starting_fee"
+                    v-model="form.starting_fee"
+                    :isRequired="false"
+                >
+                    Startgeld
+                </InputField>
+                <InputField
+                    name="prize_fund"
+                    :modelValue="tournament?.prize_fund"
+                    v-model="form.prize_fund"
+                    :isRequired="false"
+                >
+                    Preisfonds
+                </InputField>
+            </div>
             <InputField
                 name="organizer"
                 :modelValue="tournament?.organizer"
@@ -95,22 +125,6 @@
                 v-model="form.organizer"
             >
                 Ausrichter
-            </InputField>
-            <InputField
-                name="street"
-                :modelValue="tournament?.street"
-                :isRequired="false"
-                v-model="form.street"
-            >
-                Straße
-            </InputField>
-            <InputField
-                name="plz"
-                :modelValue="tournament?.plz"
-                :isRequired="false"
-                v-model="form.plz"
-            >
-                PLZ
             </InputField>
             <InputField
                 type="url"
@@ -148,17 +162,17 @@
                 >Schnellschach-ELO Auswertung</InputCheckbox
             >
         </div>
-        <ButtonPrimary>Submit</ButtonPrimary>
+        <ButtonPrimary class="w-full mt-4 md:max-w-sm">Submit</ButtonPrimary>
     </form>
 </template>
 
 <script setup>
-import InputField from "./InputField.vue";
-import InputSelect from "./InputSelect.vue";
-import InputCheckbox from "./InputCheckbox.vue";
-import ButtonPrimary from "./ButtonPrimary.vue";
-import { ref } from "vue";
-import { usePage } from "@inertiajs/vue3";
+import InputField from './InputField.vue';
+import InputSelect from './InputSelect.vue';
+import InputCheckbox from './InputCheckbox.vue';
+import ButtonPrimary from './ButtonPrimary.vue';
+import { ref } from 'vue';
+import { usePage } from '@inertiajs/vue3';
 
 const props = defineProps({
     tournament: {
@@ -167,15 +181,15 @@ const props = defineProps({
     method: {
         validator(value) {
             // The value must match one of these strings
-            return ["post", "put"].includes(value);
+            return ['post', 'put'].includes(value);
         },
     },
 });
 
 const page = usePage();
 
-let submitURL = "/tournaments";
-if (props.method === "put") {
+let submitURL = '/tournaments';
+if (props.method === 'put') {
     submitURL = `/tournaments/${props.tournament.id}`;
 }
 

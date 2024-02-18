@@ -42,21 +42,21 @@
                 <ButtonLink :href="`/tournaments/${tournament.id}`">
                     Mehr Infos
                 </ButtonLink>
-                <ButtonLink :href="`tournaments/${tournament.id}/edit`"
-                    >Bearbeiten
-                </ButtonLink>
+                <!-- <ButtonLink :href="`tournaments/${tournament.id}/edit`"
+                        >Bearbeiten
+                    </ButtonLink> -->
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import Tag from "./Tag.vue";
-import ButtonLink from "./ButtonLink.vue";
+import Tag from './Tag.vue';
+import ButtonLink from './ButtonLink.vue';
 
-import { computed } from "vue";
-import IconLocation from "./Icons/IconLocation.vue";
-import IconNumber from "./Icons/IconNumber.vue";
+import { computed } from 'vue';
+import IconLocation from './Icons/IconLocation.vue';
+import IconNumber from './Icons/IconNumber.vue';
 const props = defineProps({ tournament: Object });
 
 const startDate = computed(() => {
@@ -85,7 +85,7 @@ function convertDateFormatToDDMM(date) {
  * @param {number} n
  */
 function addLeadingZero(n) {
-    return n < 10 ? "0" + n : n;
+    return n < 10 ? '0' + n : n;
 }
 </script>
 
