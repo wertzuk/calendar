@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="max-w-screen-lg mx-auto">
         <div class="flex gap-2 my-2">
             <Filter @click="setFilter(0)" :active="noFilterActive">Alle</Filter>
             <Filter @click="setFilter(1)" :active="classicalFilterActive"
@@ -19,9 +19,7 @@
                         {{ month }}
                     </h1>
                 </div>
-                <div
-                    class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-                >
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     <section
                         v-for="tournament in group"
                         :key="tournament.id"

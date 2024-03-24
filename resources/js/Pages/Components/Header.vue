@@ -2,7 +2,7 @@
     <header
         class="p-6 bg-gray-100 dark:bg-gray-900 dark:text-gray-300 flex justify-between fixed w-full z-10"
     >
-        <p class="text-2xl font-bolder">Turnierkalender</p>
+        <p class="text-2xl lg:text-3xl font-bolder">Turnierkalender</p>
         <div class="" @click="menuActive = !menuActive">
             <IconHamburger v-if="!menuActive" />
             <IconClose v-else />

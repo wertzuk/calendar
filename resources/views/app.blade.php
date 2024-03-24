@@ -7,7 +7,7 @@
     @inertiaHead
     <title>Turnierkalender</title>
   </head>
-  <body class="bg-white dark:bg-gray-900 min-h-screen">
+  <body class="bg-white dark:bg-gray-900 min-h-screen ">
     @inertia
   </body>
 </html>
